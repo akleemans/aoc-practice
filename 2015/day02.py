@@ -11,12 +11,12 @@ def part1(data: List[str]):
     for line in data:
         l, w, h = line.split('x')
         l, w, h = int(l), int(w), int(h)
-        s += 2*l*w + 2*w*h + 2*h*l
+        s += 2 * l * w + 2 * w * h + 2 * h * l
         all = [l, w, h]
         low1 = min(all)
         all.remove(low1)
         low2 = min(all)
-        s += low1*low2
+        s += low1 * low2
     return s
 
 
@@ -29,8 +29,9 @@ def part2(data: List[str]):
         low1 = min(all)
         all.remove(low1)
         low2 = min(all)
-        r += low1*2 + low2*2 + l*w*h
+        r += low1 * 2 + low2 * 2 + l * w * h
     return r
+
 
 def main():
     with open('inputs/day02.txt') as read_file:
@@ -42,7 +43,7 @@ def main():
     assert part1_result == 1588178, f'Part 1 returned {part1_result}'
 
     part2_test_result = part2(test_data)
-    assert part2_test_result == 34+14, f'Part 2 test input returned {part2_test_result}'
+    assert part2_test_result == 34 + 14, f'Part 2 test input returned {part2_test_result}'
     part2_result = part2(data)
     assert part2_result == 3783758, f'Part 2 returned {part2_result}'
 

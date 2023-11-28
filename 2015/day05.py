@@ -24,7 +24,7 @@ def part1(data: List[str]):
             c = word[i]
             if c in 'aeiou':
                 vowel_count += 1
-            if i >= 1 and c == word[i-1]:
+            if i >= 1 and c == word[i - 1]:
                 double_letter = True
         if 'ab' in word or 'cd' in word or 'pq' in word or 'xy' in word:
             bad_strings = True
@@ -32,21 +32,23 @@ def part1(data: List[str]):
             count += 1
     return count
 
+
 def part2(data: List[str]):
     count = 0
     for word in data:
         letter_between = False
         repeating_pair = False
-        for i in range(len(word)-2):
-            if word[i] == word[i+2]:
+        for i in range(len(word) - 2):
+            if word[i] == word[i + 2]:
                 letter_between = True
-            pair = word[i] + word[i+1]
+            pair = word[i] + word[i + 1]
             if len(word.split(pair)) >= 3:
                 repeating_pair = True
 
         if letter_between and repeating_pair:
             count += 1
     return count
+
 
 def main():
     with open('inputs/day05.txt') as read_file:

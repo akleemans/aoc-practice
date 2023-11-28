@@ -20,7 +20,7 @@ def part2(data: List[str]):
         else:
             floor += 1
         if floor == -1:
-            return pos+1
+            return pos + 1
 
 
 def main():

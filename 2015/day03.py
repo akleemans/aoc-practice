@@ -11,10 +11,14 @@ def part1(data: List[str]):
     coord = Coord(0, 0)
     visits.append(coord.pair())
     for d in data[0]:
-        if d == '>': coord.x += 1
-        elif d == '<': coord.x -= 1
-        elif d == '^': coord.y -= 1
-        elif d == 'v': coord.y += 1
+        if d == '>':
+            coord.x += 1
+        elif d == '<':
+            coord.x -= 1
+        elif d == '^':
+            coord.y -= 1
+        elif d == 'v':
+            coord.y += 1
         visits.append(coord.pair())
     return len(set(visits))
 
@@ -26,11 +30,15 @@ def part2(data: List[str]):
     visits.append(coord1.pair())
     for i in range(len(data[0])):
         d = data[0][i]
-        coord = [coord1, coord2][i%2]
-        if d == '>': coord.x += 1
-        elif d == '<': coord.x -= 1
-        elif d == '^': coord.y -= 1
-        elif d == 'v': coord.y += 1
+        coord = [coord1, coord2][i % 2]
+        if d == '>':
+            coord.x += 1
+        elif d == '<':
+            coord.x -= 1
+        elif d == '^':
+            coord.y -= 1
+        elif d == 'v':
+            coord.y += 1
         visits.append(coord.pair())
     return len(set(visits))
 

@@ -12,10 +12,10 @@ def part1(data: List[str]):
     for instr in data:
         parts = instr.split(' ')
         x0, y0 = parts[-3].split(',')
-        x1, y1 =  parts[-1].split(',')
+        x1, y1 = parts[-1].split(',')
         x0, y0, x1, y1 = int(x0), int(y0), int(x1), int(y1)
-        for x in range(x0, x1+1):
-            for y in range(y0, y1+1):
+        for x in range(x0, x1 + 1):
+            for y in range(y0, y1 + 1):
                 if 'turn off' in instr:
                     grid[y][x] = 0
                 elif 'turn on' in instr:
@@ -30,16 +30,16 @@ def part2(data: List[str]):
     for instr in data:
         parts = instr.split(' ')
         x0, y0 = parts[-3].split(',')
-        x1, y1 =  parts[-1].split(',')
+        x1, y1 = parts[-1].split(',')
         x0, y0, x1, y1 = int(x0), int(y0), int(x1), int(y1)
-        for x in range(x0, x1+1):
-            for y in range(y0, y1+1):
+        for x in range(x0, x1 + 1):
+            for y in range(y0, y1 + 1):
                 if 'turn off' in instr:
-                    grid[y][x] = max(grid[y][x]-1, 0)
+                    grid[y][x] = max(grid[y][x] - 1, 0)
                 elif 'turn on' in instr:
-                    grid[y][x] = grid[y][x]+1
+                    grid[y][x] = grid[y][x] + 1
                 elif 'toggle' in instr:
-                    grid[y][x] = grid[y][x]+2
+                    grid[y][x] = grid[y][x] + 2
     return sum([sum(line) for line in grid])
 
 
@@ -48,7 +48,7 @@ def main():
         data = [x.rstrip('\n') for x in read_file.readlines()]
 
     part1_test_result = part1(test_data)
-    assert part1_test_result == 10**6 - 1000 - 4, f'Part 1 test input returned {part1_test_result}'
+    assert part1_test_result == 10 ** 6 - 1000 - 4, f'Part 1 test input returned {part1_test_result}'
     part1_result = part1(data)
     assert part1_result == 400410, f'Part 1 returned {part1_result}'
 

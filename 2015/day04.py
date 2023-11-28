@@ -5,13 +5,16 @@ import utils
 
 test_data = '''abcdef'''.split('\n')
 
+
 def search_prefix(s: str, n: int) -> int:
     i = 1
+    prefix = '0' * n
     while True:
         result = utils.md5(s + str(i))
-        if result.startswith('0' * n):
+        if result.startswith(prefix):
             return i
         i += 1
+
 
 def part1(data: List[str]):
     return search_prefix(data[0], 5)
