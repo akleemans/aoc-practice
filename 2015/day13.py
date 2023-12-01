@@ -45,8 +45,8 @@ def solve(people: List[str], ratings: Dict[Tuple[str, str], int]) -> int:
     def _dfs(current_pairs: List[Tuple[str, str]]):
         # Only check for neighbors
         all_people = people_from_pairs(current_pairs)
-        no_neighbor = [p for p in all_people if all_people.count(p) == 1]
-        next_pairs: List[Tuple[str, str]] = [p for p in ratings if p not in current_pairs and (p[0] in no_neighbor or p[1] in no_neighbor)]
+        no_neighbor = sorted([p for p in all_people if all_people.count(p) == 1])[0]
+        next_pairs: List[Tuple[str, str]] = [p for p in ratings if p not in current_pairs and no_neighbor in p]
         for p in next_pairs:
             possible_solution: List[Tuple[str, str]] = [*current_pairs, p]
             single_people = people_from_pairs(possible_solution)
